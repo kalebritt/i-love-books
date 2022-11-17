@@ -31,20 +31,31 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../client/build")));
 }
 
-app.use(routes);
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
 
-//startApolloServer
-const startApolloServer = async (typeDefs, resolvers) => {
-  await server.start();
-  server.applyMiddleware({ app });
+db.once("open", () => {
+  app.listen(PORT, () => console.log(`🌍 Now listening on localhost:${PORT}`));
+  console.log(
+    `GraphQL server ready at http://localhost:${PORT}${server.graphqlPath}`
+  );
+});
 
-  db.once("open", () => {
-    app.listen(PORT, () =>
-      console.log(`🌍 Now listening on localhost:${PORT}`)
-    );
-    console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
-  });
-};
+// app.use(routes);
 
-//call the async function
-startApolloServer(typeDefs, resolvers);
+// //startApolloServer
+// const startApolloServer = async (typeDefs, resolvers) => {
+//   await server.start();
+//   server.applyMiddleware({ app });
+
+//   db.once("open", () => {
+//     app.listen(PORT, () =>
+//       console.log(`🌍 Now listening on localhost:${PORT}`)
+//     );
+//     console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
+//   });
+// };
+
+// //call the async function
+// startApolloServer(typeDefs, resolvers);
