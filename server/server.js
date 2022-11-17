@@ -5,6 +5,10 @@ const routes = require("./routes");
 //require ApolloServer
 const { ApolloServer } = require("apollo-server-express");
 
+//typeDefs, resolvers, config/connection
+const { typeDefs, resolvers } = require("./schemas");
+const db = require("./config/connection");
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 //add ApolloServer
