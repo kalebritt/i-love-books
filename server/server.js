@@ -26,6 +26,15 @@ if (process.env.NODE_ENV === 'production') {
 
 app.use(routes);
 
+//startApolloServer
+const startApolloServer = async (typeDefs, resolvers) => {
+  await server.start();
+  server.applyMiddleware({ app });
+
 db.once('open', () => {
   app.listen(PORT, () => console.log(`🌍 Now listening on localhost:${PORT}`));
-});
+})
+};
+
+//call the async function
+startApolloServer(typeDefs, resolvers);
