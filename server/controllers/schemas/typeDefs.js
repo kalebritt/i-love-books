@@ -48,3 +48,4 @@ const typeDefs = gql`
 `;
 
 // module.exports
+module.exports = typeDefs;
