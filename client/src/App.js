@@ -16,6 +16,12 @@ import SearchBooks from "./pages/SearchBooks";
 import SavedBooks from "./pages/SavedBooks";
 import Navbar from "./components/Navbar";
 
+//const http link
+const httpLink = createHttpLink({
+  uri: "/graphql",
+});
+//authLink
+
 //const new apollo client
 
 function App() {
