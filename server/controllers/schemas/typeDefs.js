@@ -15,4 +15,13 @@ const typeDefs = gql`
     token: ID!
     user: User
   }
+  #   type book
+  type Book {
+    bookId: ID!
+    authors: [String]
+    description: String
+    title: String
+    image: String
+    link: String
+  }
 `;
