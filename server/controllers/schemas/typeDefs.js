@@ -24,4 +24,13 @@ const typeDefs = gql`
     image: String
     link: String
   }
+  #   inputBook
+  input inputBook {
+    bookId: String
+    authors: [String]
+    title: String
+    description: String
+    image: String
+    link: String
+  }
 `;
