@@ -20,7 +20,17 @@ import Navbar from "./components/Navbar";
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
+
 //authLink
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem("id_token");
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : "",
+    },
+  };
+});
 
 //const new apollo client
 
