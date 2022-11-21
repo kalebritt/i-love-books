@@ -1,26 +1,18 @@
 const express = require("express");
-const path = require("path");
-const db = require("./config/connection");
-const routes = require("./routes");
-//require ApolloServer
 const { ApolloServer } = require("apollo-server-express");
-//{ authMiddleware }
-const { authMiddleware } = require("./utils/auth");
-
-//typeDefs, resolvers, config/connection
+const path = require("path");
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
-
+const { authMiddleware } = require("./utils/auth");
 const app = express();
 const PORT = process.env.PORT || 3001;
-//add ApolloServer
+
 const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: authMiddleware,
 });
 
-//applyMiddleware
 server.applyMiddleware({ app });
 
 app.use(express.urlencoded({ extended: true }));
@@ -41,21 +33,3 @@ db.once("open", () => {
     `GraphQL server ready at http://localhost:${PORT}${server.graphqlPath}`
   );
 });
-
-// app.use(routes);
-
-// //startApolloServer
-// const startApolloServer = async (typeDefs, resolvers) => {
-//   await server.start();
-//   server.applyMiddleware({ app });
-
-//   db.once("open", () => {
-//     app.listen(PORT, () =>
-//       console.log(`🌍 Now listening on localhost:${PORT}`)
-//     );
-//     console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
-//   });
-// };
-
-// //call the async function
-// startApolloServer(typeDefs, resolvers);
