@@ -4,7 +4,6 @@
 
   - [Description](#description)
   - [User Story](#user-story)
-  - [Future Enhancements](#future-enhancements)
   - [Website Preview](#website-preview)
   - [Technologies](#technologies)
   - [Collaborators](#collaborators)
@@ -21,9 +20,6 @@ I love books allows a user to search for books and save those books.  A wonderfu
 # User Story:feelsgood:
 
 As a user I want to search for my favorite books and save them to a list I can later reference.
-
-# Future Enhancements:money_with_wings:
-Great ideas will go here.  Likely a global launch plan as well as marketing futures to maximaize earning potential.  Eventually, we'll sell out to Meta, and then beyond that, reclaim what is rightfully ours by purchasing and disbanding Meta and renaming it 'Hi, Blog, I'm Dad.'
 
 # Website Preview:movie_camera:
 -Screenshots and more!:arrow_down:
