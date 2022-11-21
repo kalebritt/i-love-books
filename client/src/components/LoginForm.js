@@ -39,22 +39,27 @@ const LoginForm = () => {
       event.stopPropagation();
     }
 
-//new try code block here
+    //new try code block here
+    try {
+      const { data } = await login({
+        variables: { ...userFormData },
+      });
 
-    // try {
-    //   const response = await loginUser(userFormData);
+      // try {
+      //   const response = await loginUser(userFormData);
 
-    //   if (!response.ok) {
-    //     throw new Error("something went wrong!");
-    //   }
+      //   if (!response.ok) {
+      //     throw new Error("something went wrong!");
+      //   }
 
-    //   const { token, user } = await response.json();
-    //   console.log(user);
+      //   const { token, user } = await response.json();
+      //   console.log(user);
 
-      Auth.login(token);
+      //added data.login to Auth.login
+      Auth.login(data.login.token);
     } catch (err) {
       console.error(err);
-      setShowAlert(true);
+      // setShowAlert(true);
     }
 
     setUserFormData({
