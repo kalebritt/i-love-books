@@ -4,8 +4,8 @@ import React, { useState, useEffect } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 //add useMutation
 import { useMutation } from "@apollo/client";
-
-import { loginUser } from "../utils/API";
+//change loginUser to LOGIN_USER
+import { LOGIN_USER } from "../utils/API";
 import Auth from "../utils/auth";
 
 const LoginForm = () => {
